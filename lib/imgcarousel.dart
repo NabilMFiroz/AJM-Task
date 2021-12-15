@@ -11,6 +11,7 @@ class ImgSlider extends StatefulWidget {
 
 class _ImgSliderState extends State<ImgSlider> {
   int activeIndex = 0;
+  final controller = CarouselController();
   final urlImgs = [
     'images/servicesimgs/Cloud_Saas_2.jpg',
     'images/servicesimgs/Technocal_consultant.jpg',
@@ -52,6 +53,7 @@ class _ImgSliderState extends State<ImgSlider> {
               ),
               CarouselSlider.builder(
                 itemCount: urlImgs.length,
+                carouselController: controller,
                 itemBuilder: (context, index, realIndex) {
                   final urlImg = urlImgs[index];
 
@@ -89,10 +91,12 @@ class _ImgSliderState extends State<ImgSlider> {
   Widget buildIndicator() => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
         count: urlImgs.length,
+        onDotClicked: animatetoslide,
         effect: ScrollingDotsEffect(
           activeDotColor: Colors.black,
           dotWidth: 10,
           dotHeight: 10,
         ),
       );
+  void animatetoslide(int index) => controller.animateToPage(index);
 }

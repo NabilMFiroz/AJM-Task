@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -11,6 +13,7 @@ class WorkImgSlider extends StatefulWidget {
 
 class _WorkImgSliderState extends State<WorkImgSlider> {
   int activeIndex = 0;
+  final controller = CarouselController();
   final urlImgs = [
     'images/workimgs/Adapt.png',
     'images/workimgs/BEFRG.png',
@@ -26,7 +29,7 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
       child: Container(
         margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
         color: Colors.grey[600],
-        height: 435,
+        height: 455,
         child: Center(
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.center,
@@ -53,6 +56,7 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
                 ),
               ),
               CarouselSlider.builder(
+                carouselController: controller,
                 itemCount: urlImgs.length,
                 itemBuilder: (context, index, realIndex) {
                   final urlImg = urlImgs[index];
@@ -66,8 +70,27 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
                       setState(() => activeIndex = index),
                 ),
               ),
-              const SizedBox(height: 17),
-              buildIndicator(),
+              const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: previous,
+                    icon: Icon(
+                      Icons.arrow_back_ios_rounded,
+                      color: Colors.orangeAccent,
+                    ),
+                  ),
+                  buildIndicator(),
+                  IconButton(
+                    onPressed: next,
+                    icon: Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.orangeAccent,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
@@ -91,4 +114,6 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
           dotHeight: 10,
         ),
       );
+  void previous() => controller.previousPage();
+  void next() => controller.nextPage();
 }
