@@ -1,7 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_application_sliverappbar/model/Work.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WorkImgSlider extends StatefulWidget {
@@ -14,13 +13,37 @@ class WorkImgSlider extends StatefulWidget {
 class _WorkImgSliderState extends State<WorkImgSlider> {
   int activeIndex = 0;
   final controller = CarouselController();
-  final urlImgs = [
-    'images/workimgs/Adapt.png',
-    'images/workimgs/BEFRG.png',
-    'images/workimgs/civic.png',
-    'images/workimgs/design.png',
-    'images/workimgs/Fletch.png',
-    'images/workimgs/motto.png',
+  List<Work> worktag = [
+    Work(
+      img: 'images/workimgs/Adapt.png',
+      title: 'ADAPT',
+      tagline: 'CMS based E-Commerce App',
+    ),
+    Work(
+      img: 'images/workimgs/BEFRG.png',
+      title: 'BEST EVER FLAT RATE GUIDE',
+      tagline: 'Fully Customize CMS and Application for Technicians',
+    ),
+    Work(
+      img: 'images/workimgs/civic.png',
+      title: 'MY CIVIC',
+      tagline: 'Cloud Based Multi-Application Platform',
+    ),
+    Work(
+      img: 'images/workimgs/design.png',
+      title: 'DESIGN ME',
+      tagline: 'E-Commerce App for Designing and Sublimation Printing',
+    ),
+    Work(
+      img: 'images/workimgs/Fletch.png',
+      title: 'FLETCH',
+      tagline: 'Education Based App for Students and School/University',
+    ),
+    Work(
+      img: 'images/workimgs/motto.png',
+      title: 'MOTTOMOBILE',
+      tagline: 'Code free Mobile App with White Labels',
+    )
   ];
 
   @override
@@ -29,10 +52,10 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
       child: Container(
         margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
         color: Colors.grey[600],
-        height: 455,
+        height: 500,
         child: Center(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 7, 10, 0),
@@ -48,7 +71,7 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 4),
                 child: Text(
-                  'what we have done',
+                  'What we have done',
                   style: TextStyle(
                     color: Colors.orangeAccent,
                     //fontStyle: FontStyle.italic,
@@ -57,20 +80,20 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
               ),
               CarouselSlider.builder(
                 carouselController: controller,
-                itemCount: urlImgs.length,
+                itemCount: worktag.length,
                 itemBuilder: (context, index, realIndex) {
-                  final urlImg = urlImgs[index];
+                  final work = worktag[index];
 
-                  return buildImage(urlImg, index);
+                  return buildImage(work, index);
                 },
                 options: CarouselOptions(
-                  height: 330,
+                  height: 385,
                   enlargeCenterPage: true,
                   onPageChanged: (index, reason) =>
                       setState(() => activeIndex = index),
                 ),
               ),
-              const SizedBox(height: 12),
+              //const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -98,16 +121,40 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
     );
   }
 
-  Widget buildImage(String urlImg, int index) => Container(
-        child: Image.asset(
-          urlImg,
-          fit: BoxFit.contain,
+  Widget buildImage(Work work, int index) => Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              work.img,
+              fit: BoxFit.contain,
+              scale: 1.5,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              work.title,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.orangeAccent,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 5),
+            Text(
+              work.tagline,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.orangeAccent,
+              ),
+            ),
+          ],
         ),
       );
 
   Widget buildIndicator() => AnimatedSmoothIndicator(
         activeIndex: activeIndex,
-        count: urlImgs.length,
+        count: worktag.length,
         effect: ScrollingDotsEffect(
           activeDotColor: Colors.orangeAccent,
           dotWidth: 10,

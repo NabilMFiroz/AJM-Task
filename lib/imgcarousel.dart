@@ -44,7 +44,7 @@ class _ImgSliderState extends State<ImgSlider> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 4),
                 child: Text(
-                  'what we do',
+                  'What we do',
                   style: TextStyle(
                     color: Colors.grey[800],
                     //fontStyle: FontStyle.italic,
