@@ -2,30 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ImgSlider extends StatefulWidget {
-  const ImgSlider({Key? key}) : super(key: key);
+class WorkImgSlider extends StatefulWidget {
+  const WorkImgSlider({Key? key}) : super(key: key);
 
   @override
-  _ImgSliderState createState() => _ImgSliderState();
+  _WorkImgSliderState createState() => _WorkImgSliderState();
 }
 
-class _ImgSliderState extends State<ImgSlider> {
+class _WorkImgSliderState extends State<WorkImgSlider> {
   int activeIndex = 0;
   final urlImgs = [
-    'images/servicesimgs/Cloud_Saas_2.jpg',
-    'images/servicesimgs/Technocal_consultant.jpg',
-    'images/servicesimgs/UI_UX.jpg',
-    'images/servicesimgs/Web_development_3.jpg',
-    'images/servicesimgs/Hire.jpg',
-    'images/servicesimgs/Mobile_development_1.jpg',
-    'images/servicesimgs/Project_Management.jpg',
+    'images/workimgs/Adapt.png',
+    'images/workimgs/BEFRG.png',
+    'images/workimgs/civic.png',
+    'images/workimgs/design.png',
+    'images/workimgs/Fletch.png',
+    'images/workimgs/motto.png',
   ];
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        height: 650,
+        margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+        color: Colors.grey[600],
+        height: 435,
         child: Center(
           child: Column(
             //mainAxisAlignment: MainAxisAlignment.center,
@@ -33,9 +34,10 @@ class _ImgSliderState extends State<ImgSlider> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 7, 10, 0),
                 child: Text(
-                  'SERVICES',
+                  'OUR WORK',
                   style: TextStyle(
                     fontSize: 25,
+                    color: Colors.orangeAccent,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -43,9 +45,9 @@ class _ImgSliderState extends State<ImgSlider> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 4),
                 child: Text(
-                  'what we do',
+                  'what we have done',
                   style: TextStyle(
-                    color: Colors.grey[800],
+                    color: Colors.orangeAccent,
                     //fontStyle: FontStyle.italic,
                   ),
                 ),
@@ -58,11 +60,8 @@ class _ImgSliderState extends State<ImgSlider> {
                   return buildImage(urlImg, index);
                 },
                 options: CarouselOptions(
-                  height: 556,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 2),
+                  height: 330,
                   enlargeCenterPage: true,
-                  enlargeStrategy: CenterPageEnlargeStrategy.height,
                   onPageChanged: (index, reason) =>
                       setState(() => activeIndex = index),
                 ),
@@ -77,12 +76,9 @@ class _ImgSliderState extends State<ImgSlider> {
   }
 
   Widget buildImage(String urlImg, int index) => Container(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(14),
-          child: Image.asset(
-            urlImg,
-            fit: BoxFit.cover,
-          ),
+        child: Image.asset(
+          urlImg,
+          fit: BoxFit.contain,
         ),
       );
 
@@ -90,7 +86,7 @@ class _ImgSliderState extends State<ImgSlider> {
         activeIndex: activeIndex,
         count: urlImgs.length,
         effect: ScrollingDotsEffect(
-          activeDotColor: Colors.black,
+          activeDotColor: Colors.orangeAccent,
           dotWidth: 10,
           dotHeight: 10,
         ),

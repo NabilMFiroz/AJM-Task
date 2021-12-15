@@ -3,7 +3,7 @@ import 'package:flutter_application_sliverappbar/imgcarousel.dart';
 import 'package:flutter_application_sliverappbar/mysliverappbar.dart';
 import 'package:flutter_application_sliverappbar/mysquare.dart';
 import 'package:flutter_application_sliverappbar/mystickyheader.dart';
-//import 'package:flutter_application_sliverappbar/servicesbox.dart';
+import 'package:flutter_application_sliverappbar/workimgcarousel.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,8 +25,7 @@ class _HomePageState extends State<HomePage> {
           MyAppBar(onPress: onMenuPress),
           MyStickyHeader(isVisi: isVisible),
           ImgSlider(),
-          MySquareG(),
-          MySlider(),
+          WorkImgSlider(),
           MySquareG(),
           MySquareG(),
           MySlider(),

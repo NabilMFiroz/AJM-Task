@@ -30,16 +30,17 @@ class MyServiceBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
         child: Container(
+      margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
       height: 520,
       color: Colors.grey[600],
       child: Column(children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            'Services',
+            'Our Work',
             style: TextStyle(
               fontSize: 30,
-              color: Colors.amber,
+              color: Colors.orangeAccent,
               fontWeight: FontWeight.bold,
             ),
           ),
