@@ -41,7 +41,7 @@ class MyAppBar extends StatelessWidget {
                 IconButton(
                     onPressed: onPress,
                     icon: Icon(Icons.menu),
-                    color: Colors.amber,
+                    color: Colors.orangeAccent[400],
                     iconSize: 30),
               ],
             ),

@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   sliver_tools: ^0.2.5
+  carousel_slider: ^4.0.0
+  smooth_page_indicator: ^1.0.0+2
 
 
   # The following adds the Cupertino Icons font to your application.

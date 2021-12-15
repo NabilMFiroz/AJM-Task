@@ -12,7 +12,7 @@ class ServicesBox extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(14),
           child: Container(
-            color: Colors.grey[600],
+            color: Colors.grey[400],
             child: Image.asset('images/Project_Management.jpg'),
             height: 446,
             width: 251,
@@ -31,7 +31,7 @@ class MyServiceBox extends StatelessWidget {
     return SliverToBoxAdapter(
         child: Container(
       height: 520,
-      color: Colors.grey[400],
+      color: Colors.grey[600],
       child: Column(children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
