@@ -6,21 +6,7 @@ class AboutSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child:
-          //Column(
-          //   children: [
-          //const SizedBox(height: 20),
-          // Text(
-          //   'MOBILE APP DEVELOPMENT COMPANY',
-          //   textAlign: TextAlign.center,
-          //   style: TextStyle(
-          //     fontSize: 23,
-          //     fontFamily: 'Raleway',
-          //     color: Colors.black,
-          //     fontWeight: FontWeight.bold,
-          //   ),
-          // ),
-          Padding(
+      child: Padding(
         padding: const EdgeInsets.all(14),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(14),
@@ -61,8 +47,6 @@ class AboutSection extends StatelessWidget {
           ),
         ),
       ),
-//        ],
-      //    ),
     );
   }
 }
