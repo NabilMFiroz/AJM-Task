@@ -51,8 +51,8 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
     return SliverToBoxAdapter(
       child: Container(
         margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
-        color: Colors.grey[600],
-        height: 500,
+        color: Colors.grey[900],
+        height: 646,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -87,13 +87,13 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
                   return buildImage(work, index);
                 },
                 options: CarouselOptions(
-                  height: 385,
+                  height: 497,
+                  initialPage: 2,
                   enlargeCenterPage: true,
                   onPageChanged: (index, reason) =>
                       setState(() => activeIndex = index),
                 ),
               ),
-              //const SizedBox(height: 12),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -129,14 +129,14 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
             Image.asset(
               work.img,
               fit: BoxFit.contain,
-              scale: 1.5,
+              scale: 1,
             ),
             const SizedBox(height: 10),
             Text(
               work.title,
               style: TextStyle(
                 fontSize: 18,
-                color: Colors.orangeAccent,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
             ),
