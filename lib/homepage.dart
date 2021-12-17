@@ -6,7 +6,7 @@ import 'package:flutter_application_sliverappbar/mysquare.dart';
 import 'package:flutter_application_sliverappbar/mystickyheader.dart';
 import 'package:flutter_application_sliverappbar/process.dart';
 import 'package:flutter_application_sliverappbar/processtree.dart';
-import 'package:flutter_application_sliverappbar/testimonial.dart';
+import 'package:flutter_application_sliverappbar/testimonialcardslider.dart';
 import 'package:flutter_application_sliverappbar/workimgcarousel.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           AboutSection(),
           ProcessBox(),
           ProcessTree(),
-          TestimonialSlider(),
+          TCardSlider(),
           MySlider(),
           MySquareG(),
           MySquareG(),
