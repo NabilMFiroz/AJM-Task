@@ -8,6 +8,7 @@ class TestimonialSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     final pimg = -profileHeight * 0.5;
     return Container(
+      margin: EdgeInsets.only(top: 14),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(14, 80, 14, 14),
         child: Stack(
