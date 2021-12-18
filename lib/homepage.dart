@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_sliverappbar/about.dart';
+import 'package:flutter_application_sliverappbar/appsbanner.dart';
 import 'package:flutter_application_sliverappbar/blogslist.dart';
 import 'package:flutter_application_sliverappbar/imgcarousel.dart';
 import 'package:flutter_application_sliverappbar/mysliverappbar.dart';
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
           ProcessBox(),
           ProcessTree(),
           TCardSlider(),
-          //AppsBanner(),
+          AppsBanner(),
           BlogList(),
           MySquareG(),
           MySquareG(),
