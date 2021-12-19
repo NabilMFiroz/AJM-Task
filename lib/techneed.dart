@@ -24,33 +24,36 @@ class _TechNeedHState extends State<TechNeedH> {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Container(
-        padding: EdgeInsets.only(top: 36),
-        width: MediaQuery.of(context).size.width,
-        height: 150,
-        color: Colors.teal,
-        child: Column(
-          children: [
-            Text(
-              "WE'RE READY TO FULLFILL YOUR",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Container(
+          padding: EdgeInsets.only(top: 36),
+          width: MediaQuery.of(context).size.width,
+          height: 150,
+          color: Colors.teal,
+          child: Column(
+            children: [
+              Text(
+                "WE'RE READY TO FULLFILL YOUR",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            Text(
-              "TECHNICAL NEEDS",
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+              Text(
+                "TECHNICAL NEEDS",
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            IconButton(
-              onPressed: toggleArrow,
-              icon: aic,
-            ),
-          ],
+              IconButton(
+                onPressed: toggleArrow,
+                icon: aic,
+              ),
+            ],
+          ),
         ),
       ),
     );
