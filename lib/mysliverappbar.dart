@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-///import 'package:sliver_tools/sliver_tools.dart';
-
 class MyAppBar extends StatelessWidget {
   final onPress;
   const MyAppBar({Key? key, this.onPress}) : super(key: key);

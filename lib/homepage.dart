@@ -19,9 +19,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isVisible = false;
+  bool isVisibleM = false;
+  bool isVisibleF = false;
   void onMenuPress() {
-    setState(() => isVisible = !isVisible);
+    setState(() => isVisibleM = !isVisibleM);
+  }
+
+  void onFormPress() {
+    setState(() => isVisibleF = !isVisibleF);
   }
 
   @override
@@ -31,7 +36,7 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         slivers: [
           MyAppBar(onPress: onMenuPress),
-          MyStickyHeader(isVisi: isVisible),
+          MyStickyHeader(isVisi: isVisibleM),
           ImgSlider(),
           WorkImgSlider(),
           AboutSection(),
@@ -40,8 +45,10 @@ class _HomePageState extends State<HomePage> {
           TCardSlider(),
           AppsBanner(),
           BlogList(),
-          TechNeedH(),
-          TechNeedForm(),
+          TechNeedH(onAPress: onFormPress),
+          TechNeedForm(
+            isVis: isVisibleF,
+          ),
           MySquareG(),
         ],
       ),

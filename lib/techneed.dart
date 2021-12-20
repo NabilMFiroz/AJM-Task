@@ -14,13 +14,16 @@ final ic2 = Icon(
 bool arrowIc = true;
 
 class TechNeedH extends StatefulWidget {
-  const TechNeedH({Key? key}) : super(key: key);
+  final onAPress;
+  const TechNeedH({Key? key, this.onAPress}) : super(key: key);
 
   @override
-  _TechNeedHState createState() => _TechNeedHState();
+  _TechNeedHState createState() => _TechNeedHState(onAPress);
 }
 
 class _TechNeedHState extends State<TechNeedH> {
+  final onAPress;
+  _TechNeedHState(this.onAPress);
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -62,5 +65,6 @@ class _TechNeedHState extends State<TechNeedH> {
   void toggleArrow() => setState(() {
         arrowIc = !arrowIc;
         arrowIc ? aic = ic1 : aic = ic2;
+        onAPress();
       });
 }
