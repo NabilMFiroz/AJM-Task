@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_application_sliverappbar/about.dart';
 import 'package:flutter_application_sliverappbar/appsbanner.dart';
 import 'package:flutter_application_sliverappbar/blogslist.dart';
@@ -38,15 +37,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: isVisibleB ? buildGoTopButton() : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       backgroundColor: Colors.orangeAccent[400],
-      body: NotificationListener<UserScrollNotification>(
+      body: NotificationListener<ScrollEndNotification>(
         onNotification: (notification) {
-          if (notification.direction == ScrollDirection.forward) {
-            if (!isVisibleB) setState(() => isVisibleB = true);
-            topP();
-          } else if (notification.direction == ScrollDirection.reverse) {
-            if (isVisibleB) setState(() => isVisibleB = false);
-            bottomP();
-          }
+          bottomP();
           return true;
         },
         child: CustomScrollView(
@@ -94,12 +87,6 @@ class _HomePageState extends State<HomePage> {
   void bottomP() {
     final double end = controller.position.maxScrollExtent;
     final double cur = controller.position.pixels;
-    if (end == cur) setState(() => isVisibleB = true);
-  }
-
-  void topP() {
-    final double start = 0;
-    final double cur = controller.position.pixels;
-    if (start == cur) setState(() => isVisibleB = false);
+    setState(() => isVisibleB = end == cur);
   }
 }

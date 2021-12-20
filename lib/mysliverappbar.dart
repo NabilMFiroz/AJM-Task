@@ -21,21 +21,18 @@ class MyAppBar extends StatelessWidget {
       expandedHeight: 344,
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
-          background: Image.asset('images/me.jpeg'),
+          background: Image.asset(
+            'images/white.jpg',
+            fit: BoxFit.fill,
+          ),
           titlePadding: EdgeInsets.all(0),
           collapseMode: CollapseMode.pin,
           title: Container(
             color: Colors.black,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                  child: Text(
-                    ' NABIL M. FIROZ ',
-                  ),
-                ),
                 IconButton(
                     onPressed: onPress,
                     icon: Icon(Icons.menu),
