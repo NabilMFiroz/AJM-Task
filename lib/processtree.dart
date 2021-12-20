@@ -11,7 +11,7 @@ class ProcessTree extends StatelessWidget {
         color: Colors.grey[200],
         child: Image.asset(
           'images/process/process_tree.png',
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
     );

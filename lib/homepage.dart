@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_application_sliverappbar/about.dart';
 import 'package:flutter_application_sliverappbar/appsbanner.dart';
 import 'package:flutter_application_sliverappbar/blogslist.dart';
+import 'package:flutter_application_sliverappbar/footer.dart';
 import 'package:flutter_application_sliverappbar/imgcarousel.dart';
 import 'package:flutter_application_sliverappbar/mysliverappbar.dart';
-import 'package:flutter_application_sliverappbar/mysquare.dart';
 import 'package:flutter_application_sliverappbar/mystickyheader.dart';
 import 'package:flutter_application_sliverappbar/process.dart';
 import 'package:flutter_application_sliverappbar/processtree.dart';
@@ -19,8 +20,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = ScrollController();
   bool isVisibleM = false;
   bool isVisibleF = false;
+  bool isVisibleB = false;
   void onMenuPress() {
     setState(() => isVisibleM = !isVisibleM);
   }
@@ -32,26 +35,71 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: isVisibleB ? buildGoTopButton() : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       backgroundColor: Colors.orangeAccent[400],
-      body: CustomScrollView(
-        slivers: [
-          MyAppBar(onPress: onMenuPress),
-          MyStickyHeader(isVisi: isVisibleM),
-          ImgSlider(),
-          WorkImgSlider(),
-          AboutSection(),
-          ProcessBox(),
-          ProcessTree(),
-          TCardSlider(),
-          AppsBanner(),
-          BlogList(),
-          TechNeedH(onAPress: onFormPress),
-          TechNeedForm(
-            isVis: isVisibleF,
-          ),
-          MySquareG(),
-        ],
+      body: NotificationListener<UserScrollNotification>(
+        onNotification: (notification) {
+          if (notification.direction == ScrollDirection.forward) {
+            if (!isVisibleB) setState(() => isVisibleB = true);
+            topP();
+          } else if (notification.direction == ScrollDirection.reverse) {
+            if (isVisibleB) setState(() => isVisibleB = false);
+            bottomP();
+          }
+          return true;
+        },
+        child: CustomScrollView(
+          controller: controller,
+          slivers: [
+            MyAppBar(onPress: onMenuPress),
+            MyStickyHeader(isVisi: isVisibleM),
+            ImgSlider(),
+            WorkImgSlider(),
+            AboutSection(),
+            ProcessBox(),
+            ProcessTree(),
+            TCardSlider(),
+            AppsBanner(),
+            BlogList(),
+            TechNeedH(onAPress: onFormPress),
+            TechNeedForm(
+              isVis: isVisibleF,
+            ),
+            PageFooter(),
+          ],
+        ),
       ),
     );
+  }
+
+  Widget buildGoTopButton() => FloatingActionButton(
+        elevation: 0,
+        onPressed: scrollUp,
+        child: Icon(
+          Icons.arrow_drop_up_rounded,
+          size: 50,
+          color: Colors.orangeAccent,
+        ),
+        backgroundColor: Colors.grey[700],
+      );
+
+  void scrollUp() {
+    final double start = 0;
+    controller.animateTo(start,
+        duration: Duration(seconds: 1), curve: Curves.easeIn);
+    setState(() => isVisibleB = false);
+  }
+
+  void bottomP() {
+    final double end = controller.position.maxScrollExtent;
+    final double cur = controller.position.pixels;
+    if (end == cur) setState(() => isVisibleB = true);
+  }
+
+  void topP() {
+    final double start = 0;
+    final double cur = controller.position.pixels;
+    if (start == cur) setState(() => isVisibleB = false);
   }
 }
