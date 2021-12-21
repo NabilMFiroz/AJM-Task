@@ -88,7 +88,7 @@ class _WorkImgSliderState extends State<WorkImgSlider> {
                 },
                 options: CarouselOptions(
                   height: 497,
-                  initialPage: 2,
+                  // initialPage: 2,
                   enlargeCenterPage: true,
                   onPageChanged: (index, reason) =>
                       setState(() => activeIndex = index),

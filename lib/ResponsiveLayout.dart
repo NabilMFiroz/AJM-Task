@@ -34,11 +34,11 @@ class ResponsiveLayout extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(top: 7),
-                width: MediaQuery.of(context).size.width * 0.7,
+                width: MediaQuery.of(context).size.width * 0.65,
                 child: FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
-                    'WE FOLLOW AGILE SCRUM BASED DEVELOPMENT APPROACH, \n WHERE EVERYDAY OUR TEAM  OF BEST DEVELOPERS AND \n PROJECT MANAGERS BRING TO REALITY YOUR IDEAS,\n EVEN IF IT NEEDS SPENDING COUNTLESS HOURS \n OF THEIR SKILLS IN FRONT OF PC ALL-DAY , EVERYDAY.',
+                    'WE FOLLOW AGILE SCRUM BASED DEVELOPMENT \n APPROACH, WHERE EVERYDAY OUR TEAM  OF \n BEST DEVELOPERS AND PROJECT MANAGERS \n BRING TO REALITY YOUR IDEAS, EVEN IF IT NEEDS \n SPENDING COUNTLESS HOUR OF THEIR SKILLS IN \n FRONT OF PC ALL-DAY , EVERYDAY.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       height: 2,
@@ -75,9 +75,10 @@ class ResponsiveLayout extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.width * (0.5 * 264 / 599),
+              height: MediaQuery.of(context).size.width * (0.45 * 264 / 599),
               child: AutoSizeText(
                 '{',
                 maxFontSize: 500,
@@ -94,7 +95,7 @@ class ResponsiveLayout extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text(
-                  'WE FOLLOW AGILE SCRUM BASED DEVELOPMENT APPROACH, \n WHERE EVERYDAY OUR TEAM  OF BEST DEVELOPERS AND \n PROJECT MANAGERS BRING TO REALITY YOUR IDEAS,\n EVEN IF IT NEEDS SPENDING COUNTLESS HOURS \n OF THEIR SKILLS IN FRONT OF PC ALL-DAY , EVERYDAY.',
+                  'WE FOLLOW AGILE SCRUM BASED DEVELOPMENT \n APPROACH, WHERE EVERYDAY OUR TEAM  OF \n BEST DEVELOPERS AND PROJECT MANAGERS \n BRING TO REALITY YOUR IDEAS, EVEN IF IT NEEDS \n SPENDING COUNTLESS HOUR OF THEIR SKILLS IN \n FRONT OF PC ALL-DAY , EVERYDAY.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     height: 2,
@@ -105,7 +106,7 @@ class ResponsiveLayout extends StatelessWidget {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.width * (0.5 * 264 / 599),
+              height: MediaQuery.of(context).size.width * (0.45 * 264 / 599),
               child: AutoSizeText(
                 '}',
                 maxFontSize: 200,
