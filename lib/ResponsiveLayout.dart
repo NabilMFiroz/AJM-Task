@@ -20,7 +20,7 @@ class ResponsiveLayout extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: MediaQuery.of(context).size.width * (1.1 * 264 / 599),
+                height: MediaQuery.of(context).size.width * (1.3 * 264 / 599),
                 child: AutoSizeText(
                   '{',
                   maxFontSize: 500,
@@ -33,7 +33,7 @@ class ResponsiveLayout extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(top: 7),
-                width: MediaQuery.of(context).size.width * 0.65,
+                width: MediaQuery.of(context).size.width * 0.6,
                 child: FittedBox(
                   fit: BoxFit.fitWidth,
                   child: Text(
@@ -48,7 +48,7 @@ class ResponsiveLayout extends StatelessWidget {
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.width * (1.1 * 264 / 599),
+                height: MediaQuery.of(context).size.width * (1.3 * 264 / 599),
                 child: AutoSizeText(
                   '}',
                   maxFontSize: 200,
@@ -77,7 +77,7 @@ class ResponsiveLayout extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.width * (0.45 * 264 / 599),
+              height: MediaQuery.of(context).size.width * (0.4 * 264 / 599),
               child: AutoSizeText(
                 '{',
                 maxFontSize: 500,
@@ -90,7 +90,7 @@ class ResponsiveLayout extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(top: 7),
-              width: MediaQuery.of(context).size.width * 0.35,
+              width: MediaQuery.of(context).size.width * 0.24,
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                 child: Text(
@@ -105,10 +105,10 @@ class ResponsiveLayout extends StatelessWidget {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.width * (0.45 * 264 / 599),
+              height: MediaQuery.of(context).size.width * (0.4 * 264 / 599),
               child: AutoSizeText(
                 '}',
-                maxFontSize: 200,
+                maxFontSize: 1000,
                 minFontSize: 50,
                 style: TextStyle(
                   fontSize: 200,
