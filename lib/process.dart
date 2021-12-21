@@ -8,7 +8,7 @@ class ProcessBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
-        padding: EdgeInsets.all(5),
+        padding: EdgeInsets.fromLTRB(5, 15, 5, 20),
         color: Colors.grey[200],
         child: ResponsiveLayout(),
       ),
